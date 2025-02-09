@@ -1,4 +1,4 @@
-This repository is used to store the reproducible files for the article *"Grandchild Care and Relative Educational Attainment across Generations"* submitted to the *Journal of Human Resources*.
+This repository is used to store the replication files for the manuscript *"Grandchild Care and Relative Educational Attainment across Generations"* submitted to the *Journal of Human Resources*.
 
 
 
