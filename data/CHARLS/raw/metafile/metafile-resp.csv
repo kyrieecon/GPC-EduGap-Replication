@@ -1,0 +1,123 @@
+﻿Column,Column_Label,Column_Alias,Column_Dtype,Value_Range,Value_PreRepl,Value_PreFill,Is_Use
+ID,受访者个人ID,,Str,,,,True
+householdID,家庭ID,,Str,,,,True
+communityID,社区ID,,Str,,,,True
+s1id,受访者在第1轮(2011年)的配偶ID(11-12位数字),sid_2011,Int,"(1010410101, 34776331202)",,,True
+s2id,受访者在第2轮(2013年)的配偶ID(11-12位数字),sid_2013,Int,"(1010410101, 347763311001)",,,True
+s3id,受访者在第3轮(2015年)的配偶ID(11-12位数字),sid_2015,Int,"(1010410101, 347763315002)",,,True
+s4id,受访者在第4轮(2018年)的配偶ID(11-12位数字),sid_2018,Int,"(1010410101, 347763319002)",,,True
+inw1,受访者在第1轮(2011年)是否接受访问,hinw_2011,Cat,"{0:'No',1:'Yes'}","{'0.no':'No','1.yes':'Yes'}",,True
+inw2,受访者在第2轮(2013年)是否接受访问,hinw_2013,Cat,"{0:'No',1:'Yes'}","{'0.no':'No','1.yes':'Yes'}",,True
+inw3,受访者在第3轮(2015年)是否接受访问,hinw_2015,Cat,"{0:'No',1:'Yes'}","{'0.no':'No','1.yes':'Yes'}",,True
+inw4,受访者在第4轮(2018年)是否接受访问,hinw_2018,Cat,"{0:'No',1:'Yes'}","{'0.no':'No','1.yes':'Yes'}",,True
+h1cpl,受访者家庭在第1轮(2011年)是否双人受访,hcpl_2011,Cat,"{0:'No',1:'Yes'}","{'0.not coupled':'No','1.coupled':'Yes'}",,True
+h2cpl,受访者家庭在第2轮(2013年)是否双人受访,hcpl_2013,Cat,"{0:'No',1:'Yes'}","{'0.not coupled':'No','1.coupled':'Yes'}",,True
+h3cpl,受访者家庭在第3轮(2015年)是否双人受访,hcpl_2015,Cat,"{0:'No',1:'Yes'}","{'0.not coupled':'No','1.coupled':'Yes'}",,True
+h4cpl,受访者家庭在第4轮(2018年)是否双人受访,hcpl_2018,Cat,"{0:'No',1:'Yes'}","{'0.not coupled':'No','1.coupled':'Yes'}",,True
+r1famr,受访者在第1轮(2011年)是否是家庭受访者,rfamr_2011,Cat,"{0:'No',1:'Yes'}","{'0.no':'No','1.yes':'Yes'}",,True
+r2famr,受访者在第2轮(2013年)是否是家庭受访者,rfamr_2013,Cat,"{0:'No',1:'Yes'}","{'0.no':'No','1.yes':'Yes'}",,True
+r3famr,受访者在第3轮(2015年)是否是家庭受访者,rfamr_2015,Cat,"{0:'No',1:'Yes'}","{'0.no':'No','1.yes':'Yes'}",,True
+r4famr,受访者在第4轮(2018年)是否是家庭受访者,rfamr_2018,Cat,"{0:'No',1:'Yes'}","{'0.no':'No','1.yes':'Yes'}",,True
+rabyear,受访者的出生年份(报告),rbyear_rp,Int,"(1900,2000)","{'.x':'0','.m':'0','.d':'0','.i':'0','.r':'0'}",,True
+s1byear,受访者2011年配偶的出生年份(报告),sbyear_rp_2011,Int,"(1900,2000)","{'.u':'0','.m':'0','.r':'0','.v':'0','.x':'0','.d':'0','.i':'0'}",,True
+s2byear,受访者2013年配偶的出生年份(报告),sbyear_rp_2013,Int,"(1900,2000)","{'.u':'0','.m':'0','.r':'0','.v':'0','.x':'0','.d':'0','.i':'0'}",,True
+s3byear,受访者2015年配偶的出生年份(报告),sbyear_rp_2015,Int,"(1900,2000)","{'.u':'0','.m':'0','.r':'0','.v':'0','.x':'0','.d':'0','.i':'0'}",,True
+s4byear,受访者2018年配偶的出生年份(报告),sbyear_rp_2018,Int,"(1900,2000)","{'.u':'0','.m':'0','.r':'0','.v':'0','.x':'0','.d':'0','.i':'0'}",,True
+raidbyear,受访者的出生年份(身份证),rbyear_id,Int,"(1900,2000)","{'.q':'0','.m':'0','.i':'0'}",,True
+s1idbyear,受访者2011年配偶的出生年份(身份证),sbyear_id_2011,Int,"(1900,2000)","{'.u':'0','.q':'0','.m':'0','.v':'0','.i':'0'}",,True
+s2idbyear,受访者2013年配偶的出生年份(身份证),sbyear_id_2013,Int,"(1900,2000)","{'.u':'0','.q':'0','.m':'0','.v':'0','.i':'0'}",,True
+s3idbyear,受访者2015年配偶的出生年份(身份证),sbyear_id_2015,Int,"(1900,2000)","{'.u':'0','.q':'0','.m':'0','.v':'0','.i':'0'}",,True
+s4idbyear,受访者2018年配偶的出生年份(身份证),sbyear_id_2018,Int,"(1900,2000)","{'.u':'0','.q':'0','.m':'0','.v':'0','.i':'0'}",,True
+ragender,受访者的性别,rgender,Cat,"{0:'Male',1:'Female'}","{'2.woman':'Female', '1.man':'Male'}",,True
+s1gender,受访者2011年配偶的性别,sgender_2011,Cat,"{0:'Male',1:'Female'}","{'2.woman':'Female', '1.man':'Male'}",,True
+s2gender,受访者2013年配偶的性别,sgender_2013,Cat,"{0:'Male',1:'Female'}","{'2.woman':'Female', '1.man':'Male'}",,True
+s3gender,受访者2015年配偶的性别,sgender_2015,Cat,"{0:'Male',1:'Female'}","{'2.woman':'Female', '1.man':'Male'}",,True
+s4gender,受访者2018年配偶的性别,sgender_2018,Cat,"{0:'Male',1:'Female'}","{'2.woman':'Female', '1.man':'Male'}",,True
+raeduc_c,受访者的受教育程度(10分类),reduc10,Cat,"{0:'No formal education illiterate',1:'Did not finish primary school but capable of reading and/or writing',2:'Sishu',3:'Elementary school',4:'Middle school',5:'High school',6:'Vocational school',7:'Two/Three Year College/Associate degree',8:""Four Year College/Bachelor's degree"",9:'Post-graduated(Master/PhD)',}","{'1.No formal education illiterate':'No formal education illiterate', '2.Did not finish primary school but capable of reading and/or writing':'Did not finish primary school but capable of reading and/or writing',  '3.Sishu':'Sishu','4.Elementary school':'Elementary school','5.Middle school':'Middle school','6.High school':'High school','7.Vocational school':'Vocational school','8.Two/Three Year College/Associate degree':'Two/Three Year College/Associate degree',""9.Four Year College/Bachelor's degree"":""Four Year College/Bachelor's degree"",'10.Post-graduated(Master/PhD)':'Post-graduated(Master/PhD)',}",,True
+s1educ_c,受访者2011年配偶的受教育程度(10分类),seduc10_2011,Cat,"{0:'No formal education illiterate',1:'Did not finish primary school but capable of reading and/or writing',2:'Sishu',3:'Elementary school',4:'Middle school',5:'High school',6:'Vocational school',7:'Two/Three Year College/Associate degree',8:""Four Year College/Bachelor's degree"",9:'Post-graduated(Master/PhD)',}","{'1.No formal education illiterate':'No formal education illiterate', '2.Did not finish primary school but capable of reading and/or writing':'Did not finish primary school but capable of reading and/or writing',  '3.Sishu':'Sishu','4.Elementary school':'Elementary school','5.Middle school':'Middle school','6.High school':'High school','7.Vocational school':'Vocational school','8.Two/Three Year College/Associate degree':'Two/Three Year College/Associate degree',""9.Four Year College/Bachelor's degree"":""Four Year College/Bachelor's degree"",'10.Post-graduated(Master/PhD)':'Post-graduated(Master/PhD)',}",,True
+s2educ_c,受访者2013年配偶的受教育程度(10分类),seduc10_2013,Cat,"{0:'No formal education illiterate',1:'Did not finish primary school but capable of reading and/or writing',2:'Sishu',3:'Elementary school',4:'Middle school',5:'High school',6:'Vocational school',7:'Two/Three Year College/Associate degree',8:""Four Year College/Bachelor's degree"",9:'Post-graduated(Master/PhD)',}","{'1.No formal education illiterate':'No formal education illiterate', '2.Did not finish primary school but capable of reading and/or writing':'Did not finish primary school but capable of reading and/or writing',  '3.Sishu':'Sishu','4.Elementary school':'Elementary school','5.Middle school':'Middle school','6.High school':'High school','7.Vocational school':'Vocational school','8.Two/Three Year College/Associate degree':'Two/Three Year College/Associate degree',""9.Four Year College/Bachelor's degree"":""Four Year College/Bachelor's degree"",'10.Post-graduated(Master/PhD)':'Post-graduated(Master/PhD)',}",,True
+s3educ_c,受访者2015年配偶的受教育程度(10分类),seduc10_2015,Cat,"{0:'No formal education illiterate',1:'Did not finish primary school but capable of reading and/or writing',2:'Sishu',3:'Elementary school',4:'Middle school',5:'High school',6:'Vocational school',7:'Two/Three Year College/Associate degree',8:""Four Year College/Bachelor's degree"",9:'Post-graduated(Master/PhD)',}","{'1.No formal education illiterate':'No formal education illiterate', '2.Did not finish primary school but capable of reading and/or writing':'Did not finish primary school but capable of reading and/or writing',  '3.Sishu':'Sishu','4.Elementary school':'Elementary school','5.Middle school':'Middle school','6.High school':'High school','7.Vocational school':'Vocational school','8.Two/Three Year College/Associate degree':'Two/Three Year College/Associate degree',""9.Four Year College/Bachelor's degree"":""Four Year College/Bachelor's degree"",'10.Post-graduated(Master/PhD)':'Post-graduated(Master/PhD)',}",,True
+s4educ_c,受访者2018年配偶的受教育程度(10分类),seduc10_2018,Cat,"{0:'No formal education illiterate',1:'Did not finish primary school but capable of reading and/or writing',2:'Sishu',3:'Elementary school',4:'Middle school',5:'High school',6:'Vocational school',7:'Two/Three Year College/Associate degree',8:""Four Year College/Bachelor's degree"",9:'Post-graduated(Master/PhD)',}","{'1.No formal education illiterate':'No formal education illiterate', '2.Did not finish primary school but capable of reading and/or writing':'Did not finish primary school but capable of reading and/or writing',  '3.Sishu':'Sishu','4.Elementary school':'Elementary school','5.Middle school':'Middle school','6.High school':'High school','7.Vocational school':'Vocational school','8.Two/Three Year College/Associate degree':'Two/Three Year College/Associate degree',""9.Four Year College/Bachelor's degree"":""Four Year College/Bachelor's degree"",'10.Post-graduated(Master/PhD)':'Post-graduated(Master/PhD)',}",,True
+r1mstat,受访者在第1轮(2011年)的婚姻状态,rmstat_2011,Cat,"{0:'Married',1:'Partnered',2:'Separated',3:'Divorced',4:'Widowed',5:'Never married'}","{'1.married':'Married', '3.partnered':'Partnered','4.separated':'Separated', '5.divorced':'Divorced','7.widowed':'Windowed','8.never married':'Never married',}",,True
+r2mstat,受访者在第2轮(2013年)的婚姻状态,rmstat_2013,Cat,"{0:'Married',1:'Partnered',2:'Separated',3:'Divorced',4:'Widowed',5:'Never married'}","{'1.married':'Married', '3.partnered':'Partnered','4.separated':'Separated', '5.divorced':'Divorced','7.widowed':'Windowed','8.never married':'Never married',}",,True
+r3mstat,受访者在第3轮(2015年)的婚姻状态,rmstat_2015,Cat,"{0:'Married',1:'Partnered',2:'Separated',3:'Divorced',4:'Widowed',5:'Never married'}","{'1.married':'Married', '3.partnered':'Partnered','4.separated':'Separated', '5.divorced':'Divorced','7.widowed':'Windowed','8.never married':'Never married',}",,True
+r4mstat,受访者在第4轮(2018年)的婚姻状态,rmstat_2018,Cat,"{0:'Married',1:'Partnered',2:'Separated',3:'Divorced',4:'Widowed',5:'Never married'}","{'1.married':'Married', '3.partnered':'Partnered','4.separated':'Separated', '5.divorced':'Divorced','7.widowed':'Windowed','8.never married':'Never married',}",,True
+s1mstat,受访者配偶在第1轮(2011年)的婚姻状态,smstat_2011,Cat,"{0:'Married',1:'Partnered',2:'Separated',3:'Divorced',4:'Widowed',5:'Never married'}","{'1.married':'Married', '3.partnered':'Partnered','4.separated':'Separated', '5.divorced':'Divorced','7.widowed':'Windowed','8.never married':'Never married',}",,True
+s2mstat,受访者配偶在第2轮(2013年)的婚姻状态,smstat_2013,Cat,"{0:'Married',1:'Partnered',2:'Separated',3:'Divorced',4:'Widowed',5:'Never married'}","{'1.married':'Married', '3.partnered':'Partnered','4.separated':'Separated', '5.divorced':'Divorced','7.widowed':'Windowed','8.never married':'Never married',}",,True
+s3mstat,受访者配偶在第3轮(2015年)的婚姻状态,smstat_2015,Cat,"{0:'Married',1:'Partnered',2:'Separated',3:'Divorced',4:'Widowed',5:'Never married'}","{'1.married':'Married', '3.partnered':'Partnered','4.separated':'Separated', '5.divorced':'Divorced','7.widowed':'Windowed','8.never married':'Never married',}",,True
+s4mstat,受访者配偶在第4轮(2018年)的婚姻状态,smstat_2018,Cat,"{0:'Married',1:'Partnered',2:'Separated',3:'Divorced',4:'Widowed',5:'Never married'}","{'1.married':'Married', '3.partnered':'Partnered','4.separated':'Separated', '5.divorced':'Divorced','7.widowed':'Windowed','8.never married':'Never married',}",,True
+r1hukou,受访者在第1轮(2011年)的户口类型(4分类),rhukou_2011,Cat,"{0:'Agricultural hukou',1:'Non-agricultural hukou',2:'Unified residence hukou',3:'Do not have hukou',}","{'1.Agricultual hukou':'Agricultural hukou','2.Non-agricultural hukou':'Non-agricultural hukou','3.Unified residence hukou':'Unified residence hukou','4.Do not have hukou':'Do not have hukou',}",,True
+r2hukou,受访者在第2轮(2013年)的户口类型(4分类),rhukou_2013,Cat,"{0:'Agricultural hukou',1:'Non-agricultural hukou',2:'Unified residence hukou',3:'Do not have hukou',}","{'1.Agricultual hukou':'Agricultural hukou','2.Non-agricultural hukou':'Non-agricultural hukou','3.Unified residence hukou':'Unified residence hukou','4.Do not have hukou':'Do not have hukou',}",,True
+r3hukou,受访者在第3轮(2015年)的户口类型(4分类),rhukou_2015,Cat,"{0:'Agricultural hukou',1:'Non-agricultural hukou',2:'Unified residence hukou',3:'Do not have hukou',}","{'1.Agricultual hukou':'Agricultural hukou','2.Non-agricultural hukou':'Non-agricultural hukou','3.Unified residence hukou':'Unified residence hukou','4.Do not have hukou':'Do not have hukou',}",,True
+r4hukou,受访者在第4轮(2018年)的户口类型(4分类),rhukou_2018,Cat,"{0:'Agricultural hukou',1:'Non-agricultural hukou',2:'Unified residence hukou',3:'Do not have hukou',}","{'1.Agricultual hukou':'Agricultural hukou','2.Non-agricultural hukou':'Non-agricultural hukou','3.Unified residence hukou':'Unified residence hukou','4.Do not have hukou':'Do not have hukou',}",,True
+s1hukou,受访者配偶在第1轮(2011年)的户口类型(4分类),shukou_2011,Cat,"{0:'Agricultural hukou',1:'Non-agricultural hukou',2:'Unified residence hukou',3:'Do not have hukou',}","{'1.Agricultual hukou':'Agricultural hukou','2.Non-agricultural hukou':'Non-agricultural hukou','3.Unified residence hukou':'Unified residence hukou','4.Do not have hukou':'Do not have hukou',}",,True
+s2hukou,受访者配偶在第2轮(2013年)的户口类型(4分类),shukou_2013,Cat,"{0:'Agricultural hukou',1:'Non-agricultural hukou',2:'Unified residence hukou',3:'Do not have hukou',}","{'1.Agricultual hukou':'Agricultural hukou','2.Non-agricultural hukou':'Non-agricultural hukou','3.Unified residence hukou':'Unified residence hukou','4.Do not have hukou':'Do not have hukou',}",,True
+s3hukou,受访者配偶在第3轮(2015年)的户口类型(4分类),shukou_2015,Cat,"{0:'Agricultural hukou',1:'Non-agricultural hukou',2:'Unified residence hukou',3:'Do not have hukou',}","{'1.Agricultual hukou':'Agricultural hukou','2.Non-agricultural hukou':'Non-agricultural hukou','3.Unified residence hukou':'Unified residence hukou','4.Do not have hukou':'Do not have hukou',}",,True
+s4hukou,受访者配偶在第4轮(2018年)的户口类型(4分类),shukou_2018,Cat,"{0:'Agricultural hukou',1:'Non-agricultural hukou',2:'Unified residence hukou',3:'Do not have hukou',}","{'1.Agricultual hukou':'Agricultural hukou','2.Non-agricultural hukou':'Non-agricultural hukou','3.Unified residence hukou':'Unified residence hukou','4.Do not have hukou':'Do not have hukou',}",,True
+s1rural2,受访者配偶是否农村户口(2011年),shukou2_2011,Cat,"{0:'0.Urban hukou',1:'1.Rural hukou'}",,,True
+s2rural2,受访者配偶是否农村户口(2013年),shukou2_2013,Cat,"{0:'0.Urban hukou',1:'1.Rural hukou'}",,,True
+s3rural2,受访者配偶是否农村户口(2015年),shukou2_2015,Cat,"{0:'0.Urban hukou',1:'1.Rural hukou'}",,,True
+s4rural2,受访者配偶是否农村户口(2018年),shukou2_2018,Cat,"{0:'0.Urban hukou',1:'1.Rural hukou'}",,,True
+r1rural2,受访者是否农村户口(2011年),rhukou2_2011,Cat,"{0:'0.Urban hukou',1:'1.Rural hukou'}",,,True
+r2rural2,受访者是否农村户口(2013年),rhukou2_2013,Cat,"{0:'0.Urban hukou',1:'1.Rural hukou'}",,,True
+r3rural2,受访者是否农村户口(2015年),rhukou2_2015,Cat,"{0:'0.Urban hukou',1:'1.Rural hukou'}",,,True
+r4rural2,受访者是否农村户口(2018年),rhukou2_2018,Cat,"{0:'0.Urban hukou',1:'1.Rural hukou'}",,,True
+h1rural,受访者在第1轮(2011年)的居住城乡类型,hliveur_2011,Cat,"{0:'Urban',1:'Rural'}","{'0.Urban Community':'Urban', '1.Rural Village':'Rural'}",,True
+h2rural,受访者在第2轮(2013年)的居住城乡类型,hliveur_2013,Cat,"{0:'Urban',1:'Rural'}","{'0.Urban Community':'Urban', '1.Rural Village':'Rural'}",,True
+h3rural,受访者在第3轮(2015年)的居住城乡类型,hliveur_2015,Cat,"{0:'Urban',1:'Rural'}","{'0.Urban Community':'Urban', '1.Rural Village':'Rural'}",,True
+h4rural,受访者在第4轮(2018年)的居住城乡类型,hliveur_2018,Cat,"{0:'Urban',1:'Rural'}","{'0.Urban Community':'Urban', '1.Rural Village':'Rural'}",,True
+r2nhmliv,受访者在第2轮(2013年)是否居住在疗养院等机构,rnhmliv_2013,Cat,"{0:'No',1:'Yes'}","{'0.No':'No',  '1.Yes':'Yes'}",,True
+r3nhmliv,受访者在第3轮(2015年)是否居住在疗养院等机构,rnhmliv_2015,Cat,"{0:'No',1:'Yes'}","{'0.No':'No',  '1.Yes':'Yes'}",,True
+r4nhmliv,受访者在第4轮(2018年)是否居住在疗养院等机构,rnhmliv_2018,Cat,"{0:'No',1:'Yes'}","{'0.No':'No',  '1.Yes':'Yes'}",,True
+s2nhmliv,受访者配偶在第2轮(2013年)是否居住在疗养院等机构,snhmliv_2013,Cat,"{0:'No',1:'Yes'}","{'0.No':'No',  '1.Yes':'Yes'}",,True
+s3nhmliv,受访者配偶在第3轮(2015年)是否居住在疗养院等机构,snhmliv_2015,Cat,"{0:'No',1:'Yes'}","{'0.No':'No',  '1.Yes':'Yes'}",,True
+s4nhmliv,受访者配偶在第4轮(2018年)是否居住在疗养院等机构,snhmliv_2018,Cat,"{0:'No',1:'Yes'}","{'0.No':'No',  '1.Yes':'Yes'}",,True
+h1hhres,受访夫妇在第1轮(2011年)的家庭规模(同住人口数),hsize_2011,Int,"(1,16)",,,True
+h2hhres,受访夫妇在第2轮(2013年)的家庭规模(同住人口数),hsize_2013,Int,"(1,16)",,,True
+h3hhres,受访夫妇在第3轮(2015年)的家庭规模(同住人口数),hsize_2015,Int,"(1,16)",,,True
+h4hhres,受访夫妇在第4轮(2018年)的家庭规模(同住人口数),hsize_2018,Int,"(1,16)",,,True
+h1child,受访夫妇在第1轮(2011年)的子女数(健在),hchild_2011,Int,"(0,15)",,,True
+h2child,受访夫妇在第2轮(2013年)的子女数(健在),hchild_2013,Int,"(0,15)",,,True
+h3child,受访夫妇在第3轮(2015年)的子女数(健在),hchild_2015,Int,"(0,15)",,,True
+h4child,受访夫妇在第4轮(2018年)的子女数(健在),hchild_2018,Int,"(0,15)",,,True
+h1dchild,受访夫妇在第1轮(2011年)的子女数(死亡),hdchild_2011,Int,"(0,15)",,,True
+h2dchild,受访夫妇在第2轮(2013年)的子女数(死亡),hdchild_2013,Int,"(0,15)",,,True
+h3dchild,受访夫妇在第3轮(2015年)的子女数(死亡),hdchild_2015,Int,"(0,15)",,,True
+h4dchild,受访夫妇在第4轮(2018年)的子女数(死亡),hdchild_2018,Int,"(0,15)",,,True
+r1lbrf_c,受访者在第1轮(2011年)的劳动力状况,rlabstat_2011,Cat,"{0:'Agri employed',1:'Agri self-employed',2:'Non-agri employed',3:'Non-agri self-employed',4:'Non-agri family business',5:'Unemployed',6:'Retired',7:'Never work'}","{'1.Agri employed':'Agri employed','2.Agri self-employed':'Agri self-employed','3.Non-agri employed':'Non-agri employed','4.Non-agri self-employed':'Non-agri self-employed','5.Non-agri family business':'Non-agri family business','6.Unemployed':'Unemployed','7.Retired':'Retired','8.Never work':'Never work'}",,True
+r2lbrf_c,受访者在第2轮(2013年)的劳动力状况,rlabstat_2013,Cat,"{0:'Agri employed',1:'Agri self-employed',2:'Non-agri employed',3:'Non-agri self-employed',4:'Non-agri family business',5:'Unemployed',6:'Retired',7:'Never work'}","{'1.Agri employed':'Agri employed','2.Agri self-employed':'Agri self-employed','3.Non-agri employed':'Non-agri employed','4.Non-agri self-employed':'Non-agri self-employed','5.Non-agri family business':'Non-agri family business','6.Unemployed':'Unemployed','7.Retired':'Retired','8.Never work':'Never work'}",,True
+r3lbrf_c,受访者在第3轮(2015年)的劳动力状况,rlabstat_2015,Cat,"{0:'Agri employed',1:'Agri self-employed',2:'Non-agri employed',3:'Non-agri self-employed',4:'Non-agri family business',5:'Unemployed',6:'Retired',7:'Never work'}","{'1.Agri employed':'Agri employed','2.Agri self-employed':'Agri self-employed','3.Non-agri employed':'Non-agri employed','4.Non-agri self-employed':'Non-agri self-employed','5.Non-agri family business':'Non-agri family business','6.Unemployed':'Unemployed','7.Retired':'Retired','8.Never work':'Never work'}",,True
+r4lbrf_c,受访者在第4轮(2018年)的劳动力状况,rlabstat_2018,Cat,"{0:'Agri employed',1:'Agri self-employed',2:'Non-agri employed',3:'Non-agri self-employed',4:'Non-agri family business',5:'Unemployed',6:'Retired',7:'Never work'}","{'1.Agri employed':'Agri employed','2.Agri self-employed':'Agri self-employed','3.Non-agri employed':'Non-agri employed','4.Non-agri self-employed':'Non-agri self-employed','5.Non-agri family business':'Non-agri family business','6.Unemployed':'Unemployed','7.Retired':'Retired','8.Never work':'Never work'}",,True
+s1lbrf_c,受访者配偶在第1轮(2011年)的劳动力状况,slabstat_2011,Cat,"{0:'Agri employed',1:'Agri self-employed',2:'Non-agri employed',3:'Non-agri self-employed',4:'Non-agri family business',5:'Unemployed',6:'Retired',7:'Never work'}","{'1.Agri employed':'Agri employed','2.Agri self-employed':'Agri self-employed','3.Non-agri employed':'Non-agri employed','4.Non-agri self-employed':'Non-agri self-employed','5.Non-agri family business':'Non-agri family business','6.Unemployed':'Unemployed','7.Retired':'Retired','8.Never work':'Never work'}",,True
+s2lbrf_c,受访者配偶在第2轮(2013年)的劳动力状况,slabstat_2013,Cat,"{0:'Agri employed',1:'Agri self-employed',2:'Non-agri employed',3:'Non-agri self-employed',4:'Non-agri family business',5:'Unemployed',6:'Retired',7:'Never work'}","{'1.Agri employed':'Agri employed','2.Agri self-employed':'Agri self-employed','3.Non-agri employed':'Non-agri employed','4.Non-agri self-employed':'Non-agri self-employed','5.Non-agri family business':'Non-agri family business','6.Unemployed':'Unemployed','7.Retired':'Retired','8.Never work':'Never work'}",,True
+s3lbrf_c,受访者配偶在第3轮(2015年)的劳动力状况,slabstat_2015,Cat,"{0:'Agri employed',1:'Agri self-employed',2:'Non-agri employed',3:'Non-agri self-employed',4:'Non-agri family business',5:'Unemployed',6:'Retired',7:'Never work'}","{'1.Agri employed':'Agri employed','2.Agri self-employed':'Agri self-employed','3.Non-agri employed':'Non-agri employed','4.Non-agri self-employed':'Non-agri self-employed','5.Non-agri family business':'Non-agri family business','6.Unemployed':'Unemployed','7.Retired':'Retired','8.Never work':'Never work'}",,True
+s4lbrf_c,受访者配偶在第4轮(2018年)的劳动力状况,slabstat_2018,Cat,"{0:'Agri employed',1:'Agri self-employed',2:'Non-agri employed',3:'Non-agri self-employed',4:'Non-agri family business',5:'Unemployed',6:'Retired',7:'Never work'}","{'1.Agri employed':'Agri employed','2.Agri self-employed':'Agri self-employed','3.Non-agri employed':'Non-agri employed','4.Non-agri self-employed':'Non-agri self-employed','5.Non-agri family business':'Non-agri family business','6.Unemployed':'Unemployed','7.Retired':'Retired','8.Never work':'Never work'}",,True
+hh1itot,受访家庭在第1轮总收入,hinc_2011,Float,"(0,40000000)","{'.r':'-1','.b':'-2','.m':'-3','.d':'-4'}",,True
+hh2itot,受访家庭在第2轮总收入,hinc_2013,Float,"(0,40000000)","{'.r':'-1','.b':'-2','.m':'-3','.d':'-4'}",,True
+hh3itot,受访家庭在第3轮总收入,hinc_2015,Float,"(0,40000000)","{'.r':'-1','.b':'-2','.m':'-3','.d':'-4'}",,True
+hh4itot,受访家庭在第4轮总收入,hinc_2018,Float,"(0,40000000)","{'.r':'-1','.b':'-2','.m':'-3','.d':'-4'}",,True
+r1itearn,受访者在第1轮税后劳动收入,rlabinc_2011,Float,"(0,6000000)","{'.r':'-1','.b':'-2','.m':'-3','.d':'-4','.u':'-5','.v':'-6'}",,True
+r2itearn,受访者在第2轮税后劳动收入,rlabinc_2013,Float,"(0,6000000)","{'.r':'-1','.b':'-2','.m':'-3','.d':'-4','.u':'-5','.v':'-6'}",,True
+r3itearn,受访者税在第3轮后劳动收入,rlabinc_2015,Float,"(0,6000000)","{'.r':'-1','.b':'-2','.m':'-3','.d':'-4','.u':'-5','.v':'-6'}",,True
+r4itearn,受访者税在第4轮后劳动收入,rlabinc_2018,Float,"(0,6000000)","{'.r':'-1','.b':'-2','.m':'-3','.d':'-4','.u':'-5','.v':'-6'}",,True
+s1itearn,受访者配偶在第1轮税后劳动收入,slabinc_2011,Float,"(0,6000000)","{'.r':'-1','.b':'-2','.m':'-3','.d':'-4','.u':'-5','.v':'-6'}",,True
+s2itearn,受访者配偶在第2轮税后劳动收入,slabinc_2013,Float,"(0,6000000)","{'.r':'-1','.b':'-2','.m':'-3','.d':'-4','.u':'-5','.v':'-6'}",,True
+s3itearn,受访者配偶在第3轮税后劳动收入,slabinc_2015,Float,"(0,6000000)","{'.r':'-1','.b':'-2','.m':'-3','.d':'-4','.u':'-5','.v':'-6'}",,True
+s4itearn,受访者配偶在第4轮税后劳动收入,slabinc_2018,Float,"(0,6000000)","{'.r':'-1','.b':'-2','.m':'-3','.d':'-4','.u':'-5','.v':'-6'}",,True
+rabplace_c,受访者出生地,,Cat,"{0:'1.Interview place',1:'2.Another village/neighborhood, same province',2:'3.Another village/neighborhood, other province',3:'4.Abroad'}",,,True
+r1adlab_c,w1:受访者6项ADL失能项数,radlab6c_2011,Int,"(0,6)","{'.a':'-1','.d':'-1','.m':'-1'}",,True
+r2adlab_c,w2:受访者6项ADL失能项数,radlab6c_2013,Int,"(0,6)","{'.a':'-1','.d':'-1','.m':'-1'}",,True
+r3adlab_c,w3:受访者6项ADL失能项数,radlab6c_2015,Int,"(0,6)","{'.a':'-1','.d':'-1','.m':'-1'}",,True
+r4adlab_c,w4:受访者6项ADL失能项数,radlab6c_2018,Int,"(0,6)","{'.a':'-1','.d':'-1','.m':'-1'}",,True
+s1adlab_c,w1:配偶6项ADL失能项数,sadlab6c_2011,Int,"(0,6)","{'.a':'-1','.u':'-1','.v':'-1','.m':'-1'}",,True
+s2adlab_c,w2:配偶6项ADL失能项数,sadlab6c_2013,Int,"(0,6)","{'.a':'-1','.u':'-1','.v':'-1','.m':'-1'}",,True
+s3adlab_c,w3:配偶6项ADL失能项数,sadlab6c_2015,Int,"(0,6)","{'.a':'-1','.u':'-1','.v':'-1','.m':'-1'}",,True
+s4adlab_c,w4:配偶6项ADL失能项数,sadlab6c_2018,Int,"(0,6)","{'.a':'-1','.u':'-1','.v':'-1','.m':'-1'}",,True
+r1shlta,w1:受访者自我报告健康,rshlta_2011,Cat,"{0:'1.Very good',1:'2.Good',2:'3.Fair',3:'4.Poor',4:'5.Very Poor'}",,,True
+r2shlta,w2:受访者自我报告健康,rshlta_2013,Cat,"{0:'1.Very good',1:'2.Good',2:'3.Fair',3:'4.Poor',4:'5.Very Poor'}",,,True
+r3shlta,w3:受访者自我报告健康,rshlta_2015,Cat,"{0:'1.Very good',1:'2.Good',2:'3.Fair',3:'4.Poor',4:'5.Very Poor'}",,,True
+r4shlta,w4:受访者自我报告健康,rshlta_2018,Cat,"{0:'1.Very good',1:'2.Good',2:'3.Fair',3:'4.Poor',4:'5.Very Poor'}",,,True
+s1shlta,w1:配偶自我报告健康,sshlta_2011,Cat,"{0:'1.Very good',1:'2.Good',2:'3.Fair',3:'4.Poor',4:'5.Very Poor'}",,,True
+s2shlta,w2:配偶自我报告健康,sshlta_2013,Cat,"{0:'1.Very good',1:'2.Good',2:'3.Fair',3:'4.Poor',4:'5.Very Poor'}",,,True
+s3shlta,w3:配偶自我报告健康,sshlta_2015,Cat,"{0:'1.Very good',1:'2.Good',2:'3.Fair',3:'4.Poor',4:'5.Very Poor'}",,,True
+s4shlta,w4:配偶自我报告健康,sshlta_2018,Cat,"{0:'1.Very good',1:'2.Good',2:'3.Fair',3:'4.Poor',4:'5.Very Poor'}",,,True

@@ -1,0 +1,18 @@
+[project]
+name = "LTCI"
+description = "长期护理险对隔代养育的影响"
+readme = "README.md"
+
+[tidydata]
+cache_dir = '_cache'
+export_dir = '_export'
+log_file = true
+#log_level = 'INFO'
+#log_format = "<green>{time:YYYY-MM-DD HH:mm:ss} {level}</green>: {message}"
+source = "source.toml"
+pipe = "pipe.toml"
+export = "export.toml"
+keep_cache= true
+
+
+

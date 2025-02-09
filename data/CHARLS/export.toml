@@ -1,0 +1,78 @@
+[[export.data]]
+name = 'transfer2011'
+description = 'CHARLS 2011家庭转移模块'
+metafile = true
+datafile = "_export/transfer2011.dta"
+
+[[export.data]]
+name = 'transfer2013'
+description = 'CHARLS 2013家庭转移模块'
+metafile = true
+datafile = "_export/transfer2013.dta"
+
+[[export.data]]
+name = 'transfer2015'
+description = 'CHARLS 2015家庭转移模块'
+metafile = true
+datafile = "_export/transfer2015.dta"
+
+[[export.data]]
+name = 'transfer2018'
+description = 'CHARLS 2018家庭转移模块'
+metafile = true
+datafile = "_export/transfer2018.dta"
+
+[[export.data]]
+name = 'transfer'
+description = 'CHARLS家庭转移模块'
+metafile = true
+datafile = "_export/transfer.dta"
+
+[[export.data]]
+name = 'child2011'
+description = 'CHARLS 2011子女模块'
+metafile = true
+datafile = "_export/child2011.dta"
+
+[[export.data]]
+name = 'child2013'
+description = 'CHARLS 2013子女模块'
+metafile = true
+datafile = "_export/child2013.dta"
+
+[[export.data]]
+name = 'child2015'
+description = 'CHARLS 2015子女模块'
+metafile = true
+datafile = "_export/child2015.dta"
+
+[[export.data]]
+name = 'child2018'
+description = 'CHARLS 2018子女模块'
+metafile = true
+datafile = "_export/child2018.dta"
+
+
+[[export.data]]
+name = 'child'
+description = 'CHARLS子女模块'
+metafile = true
+datafile = "_export/child.dta"
+
+[[export.data]]
+name = 'resp'
+description = 'CHARLS受访者模块'
+metafile = true
+datafile = "_export/resp.dta"
+
+[[export.data]]
+name = 'psu'
+description = 'CHARLS主要抽样单元模块'
+metafile = true
+datafile = "_export/psu.dta"
+
+[[export.data]]
+name = 'CHARLS_main'
+description = 'CHARLS main合并后数据'
+metafile = true
+datafile = "_export/CHARLS_main.dta"

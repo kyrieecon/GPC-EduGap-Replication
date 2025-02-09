@@ -1,0 +1,59 @@
+[[source.data]]
+name = 'transfer2011'
+description = 'CHARLS2011家庭转移模块, V20130312'
+datafile = 'raw/datafile/csv/datafile-transfer2011_v20130312.csv'
+metafile = 'raw/metafile/metafile-transfer2011.csv'  
+
+[[source.data]]
+name = 'transfer2013'
+description = 'CHARLS2013家庭转移模块, V20151118'
+datafile = 'raw/datafile/csv/datafile-transfer2013_v20151118.csv'
+metafile = 'raw/metafile/metafile-transfer2013.csv'
+
+[[source.data]]
+name = 'transfer2015'
+description = 'CHARLS2015家庭转移模块, V20171011'
+datafile = 'raw/datafile/csv/datafile-transfer2015_v20171011.csv'
+metafile = 'raw/metafile/metafile-transfer2015.csv'   
+
+[[source.data]]
+name = 'transfer2018'
+description = 'CHARLS2018家庭转移模块, V20171011'
+datafile = 'raw/datafile/csv/datafile-transfer2018_v20200914.csv'
+metafile = 'raw/metafile/metafile-transfer2018.csv'  
+
+[[source.data]]
+name = 'child2011'
+description = 'CHARLS2011子女模块, v20170920'
+datafile = 'raw/datafile/csv/datafile-child2011_v20170920.csv'
+metafile = 'raw/metafile/metafile-child2011.csv'  
+
+[[source.data]]
+name = 'child2013'
+description = 'CHARLS2013子女信息模块, V20151118'
+datafile = 'raw/datafile/csv/datafile-child2013_v20151118.csv'
+metafile = 'raw/metafile/metafile-child2013.csv'
+
+[[source.data]]
+name = 'child2015'
+description = 'CHARLS2015子女信息模块, V20171011'
+datafile = 'raw/datafile/csv/datafile-child2015_v20171011.csv'
+metafile = 'raw/metafile/metafile-child2015.csv'
+
+[[source.data]]
+name = 'child2018'
+description = 'CHARLS2018子女信息模块, V20200914'
+datafile = 'raw/datafile/csv/datafile-family_information2018_v20200914.csv'
+metafile = 'raw/metafile/metafile-child2018.csv' 
+
+[[source.data]]
+name = 'psu'
+description = 'CHARLS主要抽样单元模块, V2011'
+datafile = 'raw/datafile/csv/datafile-psu2011_v20151118.csv'
+metafile = 'raw/metafile/metafile-psu.csv'
+
+[[source.data]]
+name = 'resp'
+description = 'Harmonzied CHARLS2011年至2018年受访者基本信息模块, V202106D'
+datafile = 'raw/datafile/csv/datafile-H_CHARLS_D_Data_v202106D.csv'
+metafile = 'raw/metafile/metafile-resp.csv'

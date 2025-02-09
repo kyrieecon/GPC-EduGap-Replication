@@ -1,2 +1,7 @@
-data/CHARLS/*
+data/CHARLS/raw/datafile/
+data/CHARLS/_export/
+data/CHARLS/_cache/
+data/CHARLS/.temp/
+data/CHARLS/.venv/
 data/data.dta
+result/table.docx

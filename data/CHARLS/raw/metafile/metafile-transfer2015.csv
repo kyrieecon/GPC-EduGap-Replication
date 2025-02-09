@@ -1,0 +1,81 @@
+﻿Column,Column_Label,Column_Alias,Column_Dtype,Value_Range,Value_PreRepl,Value_PreFill,Is_Use
+ID,家庭受访者个人ID(12位数字),,Str,,,,True
+householdID,家庭ID(10位数字),,Str,,,,True
+communityID,老年家庭所在社区ID(7位数字),,Str,,,,True
+cf001,老年夫妇是否照看过孙子女,hgkcare,Cat,"{0:'No',1:'Yes'}","{'2 No':'No', '1 Yes':'Yes'}",,True
+cf002s1,老年夫妇是否照看过来自子女1家的孙子女,hgkcarek_1,Cat,"{0:'No',1:'Yes'}",{'1 XChildName_1_':'Yes'},No,True
+cf002s2,老年夫妇是否照看过来自子女2家的孙子女,hgkcarek_2,Cat,"{0:'No',1:'Yes'}",{'2 XChildName_2_':'Yes'},No,True
+cf002s3,老年夫妇是否照看过来自子女3家的孙子女,hgkcarek_3,Cat,"{0:'No',1:'Yes'}",{'3 XChildName_3_':'Yes'},No,True
+cf002s4,老年夫妇是否照看过来自子女4家的孙子女,hgkcarek_4,Cat,"{0:'No',1:'Yes'}",{'4 XChildName_4_':'Yes'},No,True
+cf002s5,老年夫妇是否照看过来自子女5家的孙子女,hgkcarek_5,Cat,"{0:'No',1:'Yes'}",{'5 XChildName_5_':'Yes'},No,True
+cf002s6,老年夫妇是否照看过来自子女6家的孙子女,hgkcarek_6,Cat,"{0:'No',1:'Yes'}",{'6 XChildName_6_':'Yes'},No,True
+cf002s7,老年夫妇是否照看过来自子女7家的孙子女,hgkcarek_7,Cat,"{0:'No',1:'Yes'}",{'7 XChildName_7_':'Yes'},No,True
+cf002s8,老年夫妇是否照看过来自子女8家的孙子女,hgkcarek_8,Cat,"{0:'No',1:'Yes'}",{'8 XChildName_8_':'Yes'},No,True
+cf002s9,老年夫妇是否照看过来自子女9家的孙子女,hgkcarek_9,Cat,"{0:'No',1:'Yes'}",{'9 XChildName_9_':'Yes'},No,True
+cf002s10,老年夫妇是否照看过来自子女10家的孙子女,hgkcarek_10,Cat,"{0:'No',1:'Yes'}",{'10 XChildName_10_':'Yes'},No,True
+cf002s11,老年夫妇是否照看过来自子女11家的孙子女,hgkcarek_11,Cat,"{0:'No',1:'Yes'}",{'11 XChildName_11_':'Yes'},No,True
+cf002s12,老年夫妇是否照看过来自子女12家的孙子女,hgkcarek_12,Cat,"{0:'No',1:'Yes'}",{'12 XChildName_12_':'Yes'},No,True
+cf002s13,老年夫妇是否照看过来自子女13家的孙子女,hgkcarek_13,Cat,"{0:'No',1:'Yes'}",{'13 XChildName_13_':'Yes'},No,True
+cf002s14,老年夫妇是否照看过来自子女14家的孙子女,hgkcarek_14,Cat,"{0:'No',1:'Yes'}",,No,True
+cf002s15,老年夫妇是否照看过来自子女15家的孙子女,hgkcarek_15,Cat,"{0:'No',1:'Yes'}",,No,True
+cf002s16,老年夫妇是否照看过来自子女16家的孙子女,hgkcarek_16,Cat,"{0:'No',1:'Yes'}",,No,True
+cf002s17,老年夫妇是否照看过来自子女17家的孙子女,hgkcarek_17,Cat,"{0:'No',1:'Yes'}",,No,True
+cf002s18,老年夫妇是否照看过来自子女18家的孙子女,hgkcarek_18,Cat,"{0:'No',1:'Yes'}",,No,True
+cf002s19,老年夫妇是否照看过来自子女19家的孙子女,hgkcarek_19,Cat,"{0:'No',1:'Yes'}",,No,True
+cf002s20,老年夫妇是否照看过来自子女20家的孙子女,hgkcarek_20,Cat,"{0:'No',1:'Yes'}",,No,True
+cf002s21,老年夫妇是否照看过来自子女21家的孙子女,hgkcarek_21,Cat,"{0:'No',1:'Yes'}",,No,True
+cf002s22,老年夫妇是否照看过来自子女22家的孙子女,hgkcarek_22,Cat,"{0:'No',1:'Yes'}",,No,True
+cf002s23,老年夫妇是否照看过来自子女23家的孙子女,hgkcarek_23,Cat,"{0:'No',1:'Yes'}",,No,True
+cf002s24,老年夫妇是否照看过来自子女24家的孙子女,hgkcarek_24,Cat,"{0:'No',1:'Yes'}",,No,True
+cf002s25,老年夫妇是否照看过来自子女25家的孙子女,hgkcarek_25,Cat,"{0:'No',1:'Yes'}",,No,True
+cf003_1_1_,家庭受访者照看来自子女1家的孙子女的平均周数/年,rgkcarew_1,Int,"(1,52)",,,True
+cf003_1_2_,家庭受访者照看来自子女2家的孙子女的平均周数/年,rgkcarew_2,Int,"(1,52)",,,True
+cf003_1_3_,家庭受访者照看来自子女3家的孙子女的平均周数/年,rgkcarew_3,Int,"(1,52)",,,True
+cf003_1_4_,家庭受访者照看来自子女4家的孙子女的平均周数/年,rgkcarew_4,Int,"(1,52)",,,True
+cf003_1_5_,家庭受访者照看来自子女5家的孙子女的平均周数/年,rgkcarew_5,Int,"(1,52)",,,True
+cf003_1_6_,家庭受访者照看来自子女6家的孙子女的平均周数/年,rgkcarew_6,Int,"(1,52)",,,True
+cf003_1_7_,家庭受访者照看来自子女7家的孙子女的平均周数/年,rgkcarew_7,Int,"(1,52)",,,True
+cf003_1_8_,家庭受访者照看来自子女8家的孙子女的平均周数/年,rgkcarew_8,Int,"(1,52)",,,True
+cf003_1_9_,家庭受访者照看来自子女9家的孙子女的平均周数/年,rgkcarew_9,Int,"(1,52)",,,True
+cf003_1_10_,家庭受访者照看来自子女10家的孙子女的平均周数/年,rgkcarew_10,Int,"(1,52)",,,True
+cf003_1_11_,家庭受访者照看来自子女11家的孙子女的平均周数/年,rgkcarew_11,Int,"(1,52)",,,True
+cf003_1_13_,家庭受访者照看来自子女13家的孙子女的平均周数/年,rgkcarew_13,Int,"(1,52)",,,True
+cf003_2_1_,家庭受访者照看来自子女1家的孙子女的平均小时数/周,rgkcarewh_1,Int,"(1,140)",,,True
+cf003_2_2_,家庭受访者照看来自子女2家的孙子女的平均小时数/周,rgkcarewh_2,Int,"(1,140)",,,True
+cf003_2_3_,家庭受访者照看来自子女3家的孙子女的平均小时数/周,rgkcarewh_3,Int,"(1,140)",,,True
+cf003_2_4_,家庭受访者照看来自子女4家的孙子女的平均小时数/周,rgkcarewh_4,Int,"(1,140)",,,True
+cf003_2_5_,家庭受访者照看来自子女5家的孙子女的平均小时数/周,rgkcarewh_5,Int,"(1,140)",,,True
+cf003_2_6_,家庭受访者照看来自子女6家的孙子女的平均小时数/周,rgkcarewh_6,Int,"(1,140)",,,True
+cf003_2_7_,家庭受访者照看来自子女7家的孙子女的平均小时数/周,rgkcarewh_7,Int,"(1,140)",,,True
+cf003_2_8_,家庭受访者照看来自子女8家的孙子女的平均小时数/周,rgkcarewh_8,Int,"(1,140)",,,True
+cf003_2_9_,家庭受访者照看来自子女9家的孙子女的平均小时数/周,rgkcarewh_9,Int,"(1,140)",,,True
+cf003_2_10_,家庭受访者照看来自子女10家的孙子女的平均小时数/周,rgkcarewh_10,Int,"(1,140)",,,True
+cf003_2_11_,家庭受访者照看来自子女11家的孙子女的平均小时数/周,rgkcarewh_11,Int,"(1,140)",,,True
+cf003_2_13_,家庭受访者照看来自子女13家的孙子女的平均小时数/周,rgkcarewh_13,Int,"(1,140)",,,True
+cf003_3_1_,家庭受访者的配偶照看来自子女1家的孙子女的平均周数/年,sgkcarew_1,Int,"(1,52)",,,True
+cf003_3_2_,家庭受访者的配偶照看来自子女2家的孙子女的平均周数/年,sgkcarew_2,Int,"(1,52)",,,True
+cf003_3_3_,家庭受访者的配偶照看来自子女3家的孙子女的平均周数/年,sgkcarew_3,Int,"(1,52)",,,True
+cf003_3_4_,家庭受访者的配偶照看来自子女4家的孙子女的平均周数/年,sgkcarew_4,Int,"(1,52)",,,True
+cf003_3_5_,家庭受访者的配偶照看来自子女5家的孙子女的平均周数/年,sgkcarew_5,Int,"(1,52)",,,True
+cf003_3_6_,家庭受访者的配偶照看来自子女6家的孙子女的平均周数/年,sgkcarew_6,Int,"(1,52)",,,True
+cf003_3_7_,家庭受访者的配偶照看来自子女7家的孙子女的平均周数/年,sgkcarew_7,Int,"(1,52)",,,True
+cf003_3_8_,家庭受访者的配偶照看来自子女8家的孙子女的平均周数/年,sgkcarew_8,Int,"(1,52)",,,True
+cf003_3_9_,家庭受访者的配偶照看来自子女9家的孙子女的平均周数/年,sgkcarew_9,Int,"(1,52)",,,True
+cf003_3_10_,家庭受访者的配偶照看来自子女10家的孙子女的平均周数/年,sgkcarew_10,Int,"(1,52)",,,True
+cf003_3_11_,家庭受访者的配偶照看来自子女11家的孙子女的平均周数/年,sgkcarew_11,Int,"(1,52)",,,True
+cf003_3_13_,家庭受访者的配偶照看来自子女13家的孙子女的平均周数/年,sgkcarew_13,Int,"(1,52)",,,True
+cf003_4_1_,家庭受访者的配偶照看来自子女1家的孙子女的平均小时数/周,sgkcarewh_1,Int,"(1,140)",,,True
+cf003_4_2_,家庭受访者的配偶照看来自子女2家的孙子女的平均小时数/周,sgkcarewh_2,Int,"(1,140)",,,True
+cf003_4_3_,家庭受访者的配偶照看来自子女3家的孙子女的平均小时数/周,sgkcarewh_3,Int,"(1,140)",,,True
+cf003_4_4_,家庭受访者的配偶照看来自子女4家的孙子女的平均小时数/周,sgkcarewh_4,Int,"(1,140)",,,True
+cf003_4_5_,家庭受访者的配偶照看来自子女5家的孙子女的平均小时数/周,sgkcarewh_5,Int,"(1,140)",,,True
+cf003_4_6_,家庭受访者的配偶照看来自子女6家的孙子女的平均小时数/周,sgkcarewh_6,Int,"(1,140)",,,True
+cf003_4_7_,家庭受访者的配偶照看来自子女7家的孙子女的平均小时数/周,sgkcarewh_7,Int,"(1,140)",,,True
+cf003_4_8_,家庭受访者的配偶照看来自子女8家的孙子女的平均小时数/周,sgkcarewh_8,Int,"(1,140)",,,True
+cf003_4_9_,家庭受访者的配偶照看来自子女9家的孙子女的平均小时数/周,sgkcarewh_9,Int,"(1,140)",,,True
+cf003_4_10_,家庭受访者的配偶照看来自子女10家的孙子女的平均小时数/周,sgkcarewh_10,Int,"(1,140)",,,True
+cf003_4_11_,家庭受访者的配偶照看来自子女11家的孙子女的平均小时数/周,sgkcarewh_11,Int,"(1,140)",,,True
+cf003_4_13_,家庭受访者的配偶照看来自子女13家的孙子女的平均小时数/周,sgkcarewh_13,Int,"(1,140)",,,True
+,,,,,,,
+,,,,,,,
+

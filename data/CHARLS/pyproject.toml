@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "CHARLS"
+version = "0.1.0"
+description = ""
+authors = ["kyrie1218 <kyrie1218@163.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.11"
+tidydata = "0.1.16"
+matplotlib = "^3.8.3"
+scienceplots = "2.1.1"
+nbformat = "5.10.3"
+nbclient = "0.10.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

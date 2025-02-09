@@ -1,0 +1,448 @@
+# 本文件配置了数据清洗的步骤：
+# 1. 处理Transfer模块，其原始文件是以每个家庭受访者个人ID或householdID作为独特ID,
+#  这个模块是用来获取到所有有16岁以下孙辈的老年家庭是否参与隔代抚养、参与哪个子女家，
+# 以及参与这个子女家隔代抚养的时间数
+# 清洗思路： 由于原始数据是针对孩子的宽格式，因此先对每个transfer文件进行宽转长，
+# 根据平均每周小时数和周数来获取到年度小时数，然后再纵向合并，纵向识别变量为year
+# 最终获取到一个以ID，childID，year为唯一识别符，附属变量：householdID,communityID, 
+
+### Transfer模块
+
+
+[[pipe.action]]
+description = '对transfer模块进行格式调整: 仅选取hgkcare'
+from_keys = ['transfer2011','transfer2013','transfer2015','transfer2018']
+func = 'format'
+[pipe.action.func_args]
+rows = ['hgkcare.notna()']  # 仅保留有资格回答隔代抚养问题的老年家庭，
+
+[[pipe.action]]
+description = '对transfer2011-2018进行宽格式转长格式'
+from_keys = ['transfer2011','transfer2013','transfer2015','transfer2018']
+func = 'reshape'
+
+[pipe.action.func_args]
+to_shape = 'long'
+groups = ['hgkcarek','rgkcarew','rgkcarewh','sgkcarew','sgkcarewh']
+j = 'childID'
+sep = '_'
+suffix = '\d+'
+
+[[pipe.action]]
+description = '计算transfer2011-2018的grandchild care参与率和时间'
+from_keys = ['transfer2011','transfer2013','transfer2015','transfer2018']
+func = 'mutate'
+
+[pipe.action.func_args]
+exprs = [
+    "rgkcarehr = rgkcarew * rgkcarewh",
+    "sgkcarehr = sgkcarew * sgkcarewh",
+    "hgkcarehr = rgkcarehr.add(sgkcarehr, fill_value=0)",
+]
+
+
+[[pipe.action]]
+description = '纵向合并transfer2011-2018'
+from_keys = 'transfer2011'
+to_keys = 'transfer'
+func = 'concat'
+
+[pipe.action.func_args]
+others = ['transfer2013','transfer2015','transfer2018']
+by_axis = 'row'
+keycol.year = [2011,2013,2015,2018]
+
+[[pipe.action]]
+description = '对transfer模块进行格式调整'
+from_keys = 'transfer'
+func = 'format'
+
+[pipe.action.func_args.column_labels]
+ID = '受访者ID'
+householdID = '家庭ID'
+communityID = '社区ID'
+year = '统计年份'
+childID = '子女ID'
+hgkcare = '老年夫妇是否照看过16岁以下的孙辈'
+hgkcarek = '老年夫妇是否照看过来自子女ID家的孙子女'
+rgkcarew = '家庭受访者照看来自子女ID家的孙子女的平均周数/年'
+sgkcarew = '家庭受访者配偶照看来自子女1家的孙子女的平均周数/年'
+rgkcarewh = '家庭受访者照看来自子女ID家的孙子女的平均小时数/周'
+sgkcarewh = '家庭受访者配偶照看来自子女ID家的孙子女的平均小时数/周'
+rgkcarehr = "家庭受访者照看来自子女ID家的孙子女的小时数/年"
+sgkcarehr = "家庭受访者配偶照看来自子女ID家的孙子女的小时数/年"
+
+### Child模块
+### 2. 孩子模块需要先对2018年的进行宽转长操作
+[[pipe.action]]
+description = '对child2018进行宽格式转长格式'
+from_keys = 'child2018'
+func = 'reshape'
+
+[pipe.action.func_args]
+to_shape = 'long'
+groups = ['kalive','kgender','kbyear','kblood','keduc_old','keduc_new',
+          'klivedis','kliveur','khukou','kdostat','kmstat','kpartner',
+          'kkidn','kkid16n','khinc','kseduc10','kswork']
+j = 'childID'
+sep = '_'
+suffix = '\d+'
+
+
+[[pipe.action]]
+description = '对child2011-child2018新增新的列'
+from_keys = ['child2011','child2013','child2015','child2018']
+func = 'mutate'
+split_mode = true
+
+[pipe.action.func_args.child2011]
+exprs = [
+    "kgender = kgender_in.combine_first(kgender_out)",
+    "kbyear = kbyear_in.combine_first(kbyear_out)",
+    "klivedis = klivedis_in.combine_first(klivedis_out)",
+    "khukou = khukou4_in.combine_first(khukou4_out)",
+    "keduc10 = keduc10_in.combine_first(keduc10_out)",
+    "kmstat = kmstat_in.mask(kpartner_in=='Yes','Partnered').combine_first(kmstat_out)",
+    "kkidn = ksonn.add(kdaun,fill_value=0)",
+    "kkid16n = kkidn.sub(kson16pn,fill_value=0).sub(kdau16pn,fill_value=0)",
+    "kkid16n = kkid16n.where(kkid16n>=0)",
+    "kalive = @empty.fillna('Yes').astype('category').cat.set_categories(['No','Yes'])",
+    "kliveur = kliveur_out",
+    "kschool = kschool_out.combine_first(kschool_in)",
+]
+
+[pipe.action.func_args.child2013]
+exprs = [
+    "kbyear = kbyear_raw.combine_first((2013-kage_raw))",
+]
+
+[pipe.action.func_args.child2015]
+exprs = [
+    "kbyear = kbyear_raw.combine_first((2015-kage_raw))",
+    "kschool = kdostat.cats.to_dummy(true=['Studying','Studying while working']).astype('category').cat.rename_categories(['No','Yes'])"
+]
+
+[pipe.action.func_args.child2018]
+exprs = [
+    "keduc10 = keduc_old.combine_first(keduc_new)",
+    "kschool = kdostat.cats.to_dummy(true=['Studying','Studying while working']).astype('category').cat.rename_categories(['No','Yes'])"
+]
+
+[[pipe.action]]
+description = '纵向合并child模块基本信息'
+from_keys = 'child2011'
+to_keys = 'child'
+func = 'concat'
+
+[pipe.action.func_args]
+others = ['child2013','child2015','child2018']
+by_axis = 'row'
+on = ['ID','householdID','communityID','childID',
+      'kalive','kgender','kbyear','keduc10',
+      'kmstat','klivedis','kkid16n','kblood',
+      'khukou','kliveur', 'khinc', 'kseduc10','kschool']
+keycol.year = [2011,2013,2015,2018]
+
+[[pipe.action]]
+description = '填充child列值'
+from_keys = 'child'
+func = 'mutate'
+
+[pipe.action.func_args]
+exprs = [
+    "kgender = kgender.groupby([householdID,childID]).bfill()",
+    "kgender = kgender.groupby([householdID,childID]).ffill()",
+    "kbyear = kbyear.groupby([householdID,childID]).bfill()",
+    "kbyear = kbyear.groupby([householdID,childID]).ffill()",
+    "kage = year - kbyear",
+    "kage = kage.where(kage>=0)",
+    "kblood = kblood.groupby([householdID,childID]).bfill()",
+    "kblood = kblood.groupby([householdID,childID]).ffill()",
+    "kmstat2 = kmstat.cats.to_dummy(true=['Married','Partnered'])",
+    "kblood2 = kblood.cats.to_dummy(true=['Both biological','FamR biological','Spouse biological'])",
+    "keduc6 = keduc10.econ.to_educ_level('cn6')",
+    "keduc3 = keduc10.econ.to_educ_level('isced97-3')",
+    "kseduc6 = kseduc10.econ.to_educ_level('cn6')",
+    "kseduc3 = kseduc10.econ.to_educ_level('isced97-3')",
+]
+
+[[pipe.action]]
+description = '对child模块进行格式调整'
+from_keys = 'child'
+func = 'format'
+
+[pipe.action.func_args]
+# columns = [
+#     'ID','householdID','communityID','childID','year',
+#     'kalive', 'kgender', 'kbyear','kage', 'kmstat','klivedis',
+#     'kkid16n', 'kblood', 'khukou', 'kliveur','khinc','kmstat2',
+#     'keduc10','keduc8','keduc6','keduc3','keduc2','kseduc10', 
+#     'kseduc8','kseduc6', 'kseduc3','kseduc2', 'keducy','kseducy', 
+# ]
+
+[pipe.action.func_args.column_labels]
+ID = '受访者ID'
+householdID = '家庭ID'
+communityID = '社区ID'
+childID = '子女ID'
+year = '统计年份'
+kalive = '子女是否健在'
+kgender = '子女是否女性'
+kbyear = '子女的出生年份'
+kage = '子女的年龄'
+kmstat = '子女的婚姻状况'
+klivedis = '子女的居住类型(与家庭受访者距离)'
+kkid16n = '子女的子女数(16岁以下)'
+kblood = '子女的血缘类型(与家庭受访者)'
+khukou = '子女的户口类型'
+kliveur = '子女的居住类型(城乡)(2011年缺失家户内子女信息)'
+khinc = '子女及其配偶的总收入类型'
+keduc10 = '子女的受教育程度(10分类)'
+kseduc10 = '子女配偶的受教育程度(10分类)(仅2018年有效)'
+kmstat2 = "子女是否已婚同住或有同居伴侣"
+kblood2 = "子女是否为受访者或配偶亲生"
+keduc6 = '子女的受教育程度(6分类)'
+keduc3 = '子女的受教育程度(3分类)'
+kseduc6 = '子女配偶的受教育程度(6分类)(仅2018年有效)'
+kseduc3 = '子女配偶的受教育程度(3分类)(仅2018年有效)'
+kschool = '子女是否正在上学'
+
+### Respondent模块
+[[pipe.action]]
+description = '对respondent进行宽格式转长格式'
+from_keys = 'resp'
+func = 'reshape'
+
+[pipe.action.func_args]
+to_shape = 'long'
+groups = [
+    'sid','hinw', 'hcpl','rfamr',
+    'sbyear_rp', 'sbyear_id', 'sgender', 'seduc10','rmstat',
+    'smstat', 'rnhmliv', 'snhmliv','rhukou','shukou','rhukou2','shukou2', 
+    'hliveur','hsize','hchild','hdchild','rlabstat','slabstat','hinc',
+    'rlabinc','slabinc','radlab6c','sadlab6c','rshlta','sshlta'
+]
+j = 'year'
+sep = '_'
+suffix = '\d+'
+
+[[pipe.action]]
+description = '对respondent进行新增列'
+from_keys = 'resp'
+func = 'mutate'
+
+[pipe.action.func_args]
+exprs = [
+    "sid = sid.astype('string[pyarrow]')",
+    "year = year.strs.to_numeric()",
+    "rbyear = rbyear_rp.combine_first(rbyear_id)",
+    "rbyear = rbyear.groupby([year,ID]).bfill()",
+    "sbyear = sbyear_rp.combine_first(sbyear_id)",
+    "sbyear = sbyear.groupby([year,sid]).bfill()",
+    "rage = year - rbyear",
+    "sage = year - sbyear",
+    "hage_max = rage.combs._max(sage,skipna=True)",
+    "hage_min = rage.combs._min(sage,skipna=True)",
+    "hage_avg = rage.combs._mean(sage,skipna=True)",
+    "hchildt = hchild.add(hdchild,fill_value=0)",
+    "hmstat2 = rmstat.cats.to_dummy(true=['Married','Partnered'])",
+    "hfemale = rgender.cat.codes.add(sgender.cat.codes, fill_value=0).replace([-1,2],[@NA,1])",
+    "hlabinc = rlabinc.add(slabinc,fill_value=0)",
+    "reduc6 = reduc10.econ.to_educ_level('cn6')",
+    "reduc3 = reduc10.econ.to_educ_level('isced97-3')",
+    "seduc6 = seduc10.econ.to_educ_level('cn6')",
+    "seduc3 = seduc10.econ.to_educ_level('isced97-3')",
+]
+
+[[pipe.action]]
+description = '对respondent进行格式调整'
+from_keys = 'resp'
+func = 'format'
+[pipe.action.func_args]
+# columns = [
+#     "ID","householdID","communityID","year","hinw","sid","rnhmliv","snhmliv",
+#     "hcpl","rfamr","rbyear","sbyear", "rage", "sage",
+#     "hage_min","hage_max","hage_avg", "rgender", "rmstat", "hchild",
+#     "hchildt","hliveur","rhukou","shukou","reduc10",'seduc10',
+#     "heduc10_min","heduc10_max","heduc10_fem",
+#     "heduc8_min","heduc8_max","heduc8_fem",
+#     "heduc6_min","heduc6_max","heduc6_fem",
+#     "heduc3_min","heduc3_max","heduc3_fem",
+#     "heduc2_min","heduc2_max","heduc2_fem",
+#     "heducy_max", "heducy_min", "heducy_fem",
+#     "heducy_avg", "hmstat2", "hfemale", "hinc"
+# ]
+
+[pipe.action.func_args.column_labels]
+ID = '受访者ID'
+householdID = '家庭ID'
+communityID = '社区ID'
+year = '统计年份'
+hinw = '家庭是否在本年接受访问'
+sid = '配偶ID'
+hcpl = '家庭是否夫妇双人受访'
+rfamr = '受访者是否为家庭受访人'
+rbyear = "受访者出生年份"
+sbyear = "受访者配偶的出生年份"
+rage = "受访者的年龄"
+sage = "受访者配偶的年龄"
+rnhmliv = '受访者是否长期居住在医院或疗养院'
+snhmliv = '受访者配偶是否长期居住在医院或疗养院'
+hage_min = "家庭夫妇最小年龄"
+hage_max = "家庭夫妇最大年份"
+hage_avg = "家庭夫妇平均年龄"
+rgender = "受访者性别"
+rmstat = "受访者的婚姻状况"
+hchildt = "受访家庭的成年子女的总数(包括已死亡的)"
+hchild = "受访家庭的成年健在子女的个数"
+rhukou = "受访者的户口类型"
+shukou = "受访者配偶的户口类型"
+reduc10 = "受访者的受教育程度(10分类)"
+seduc10 = "受访者配偶的受教育程度(10分类)"
+reduc6 = "受访者的受教育程度(6分类)"
+seduc6 = "受访者配偶的受教育程度(6分类)"
+reduc3 = "受访者的受教育程度(3分类)"
+seduc3 = "受访者配偶的受教育程度(3分类)"
+hfemale = "受访家庭是否存在女性"
+hmstat2 = "家庭家庭是否已婚同住或有同居伴侣"
+hinc = "受访家庭收入(RMB/年)"
+hlabinc = "受访家庭劳动收入(RMB/年)"
+sgender = "受访者配偶性别(女性=1)"
+smstat = "受访者配偶婚姻状况"
+hliveur = "受访家庭居住城乡类型(农村=1)"
+rhukou2 = "受访者是否农村户口"
+shukou2 = "受访者配偶是否农村户口"
+sbyear_rp = "受访者配偶出生年份(报告)"
+sbyear_id = "受访者配偶出生年份(身份证)"
+rbyear_rp = "受访者出生年份(报告)"
+rbyear_id = "受访者出生年份(身份证)"
+hsize = "受访家庭总人口"
+hdchild = "受访家庭去世的孩子数"
+rlabstat = "受访者劳动力状况"
+slabstat = "受访者配偶劳动力状况"
+rlabinc = "受访者劳动收入(RMB/年)"
+slabinc = "受访者配偶劳动收入(RMB/年)"
+radlab6c = "受访者6项ADL失能项数"
+sadlab6c = "配偶6项ADL失能项数"
+# PSU模块无需修改
+### 横向合并模块
+### 思路： 子女全部可用信息 (ID childID year) 1:1-> 子女对应的转移信息 1:m-> 家庭信息  m:1->psu信息
+
+[[pipe.action]]
+description = '左合并transfer和child'
+from_keys = 'child'
+to_keys = 'CHARLS_main'
+func = 'concat'
+
+[pipe.action.func_args]
+others = ['transfer']
+by_axis = 'column'
+on = ['ID','householdID','communityID','childID','year']
+how = 'left'
+
+
+
+[[pipe.action]]
+description = "横向合并child_psu_transfer和resp"
+from_keys = 'CHARLS_main'
+func = 'concat'
+
+[pipe.action.func_args]
+others = ['resp']
+by_axis = 'column'
+on = ['ID','householdID','communityID','year']
+how = 'left'
+
+[[pipe.action]]
+description = "横向合并child和psu"
+from_keys = 'CHARLS_main'
+func = 'concat'
+
+[pipe.action.func_args]
+others = ['psu']
+by_axis = 'column'
+on = ['communityID']
+how = 'left'
+
+
+
+[[pipe.action]]
+description = "调整CHARLS的格式"
+from_keys = 'CHARLS_main'
+func = 'format'
+
+[pipe.action.func_args]
+description = "CHARLS隔代抚养, 子女层面, V20240421"
+
+[pipe.action.func_args.column_labels]
+ID = '受访者ID'
+householdID = '家庭ID'
+communityID = '社区ID'
+year = '统计年份'
+childID = '子女ID'
+hgkcare = '老年夫妇是否照看过16岁以下的孙辈'
+hgkcarek = '老年夫妇是否照看过来自子女ID家的孙子女'
+rgkcarew = '家庭受访者照看来自子女ID家的孙子女的平均周数/年'
+sgkcarew = '家庭受访者配偶照看来自子女1家的孙子女的平均周数/年'
+rgkcarewh = '家庭受访者照看来自子女ID家的孙子女的平均小时数/周'
+sgkcarewh = '家庭受访者配偶照看来自子女ID家的孙子女的平均小时数/周'
+rgkcarehr = "家庭受访者照看来自子女ID家的孙子女的小时数/年"
+sgkcarehr = "家庭受访者配偶照看来自子女ID家的孙子女的小时数/年"
+hgkcarehr = "家庭受访者及其配偶照看来自子女ID家的孙子女的小时数/年"
+hinw = '家庭是否在本年接受访问'
+sid = '配偶ID'
+hcpl = '家庭是否夫妇双人受访'
+rfamr = '受访者是否为家庭受访人'
+rbyear = "受访者出生年份"
+sbyear = "受访者配偶的出生年份"
+rage = "受访者的年龄"
+sage = "受访者配偶的年龄"
+rnhmliv = '受访者是否长期居住在医院或疗养院'
+snhmliv = '受访者配偶是否长期居住在医院或疗养院'
+hage_min = "家庭夫妇最小年龄"
+hage_max = "家庭夫妇最大年份"
+hage_avg = "家庭夫妇平均年龄"
+rgender = "受访者性别"
+rmstat = "受访者的婚姻状况"
+hchildt = "受访家庭的成年子女的总数(包括已死亡的)"
+hchild = "受访家庭的成年健在子女的个数"
+rhukou = "受访者的户口类型"
+shukou = "受访者配偶的户口类型"
+reduc10 = "受访者的受教育程度(10分类)"
+seduc10 = "受访者配偶的受教育程度(10分类)"
+hfemale = "受访家庭是否存在女性"
+hmstat2 = "家庭家庭是否已婚同住或有同居伴侣"
+prov_name = '省份名称'
+areaID = '地区ID(东中西3区)'
+provID = '省份ID'
+hinc = "受访家庭收入(RMB/年)"
+hlabinc = "受访家庭劳动收入(RMB/年)"
+sgender = "受访者配偶性别(女性=1)"
+smstat = "受访者配偶婚姻状况"
+hliveur = "受访家庭居住城乡类型(农村=1)"
+rbyear_rp = "受访者出生年份(报告)"
+rbyear_id = "受访者出生年份(身份证)"
+sbyear_rp = "受访者配偶出生年份(报告)"
+sbyear_id = "受访者配偶出生年份(身份证)"
+hsize = "受访家庭总人口"
+hdchild = "受访家庭去世的孩子数"
+rlabstat = "受访者劳动力状况"
+slabstat = "受访者配偶劳动力状况"
+rlabinc = "受访者劳动收入(RMB/年)"
+slabinc = "受访者配偶劳动收入(RMB/年)"
+reduc6 = "受访者的受教育程度(6分类)"
+seduc6 = "受访者配偶的受教育程度(6分类)"
+reduc3 = "受访者的受教育程度(3分类)"
+seduc3 = "受访者配偶的受教育程度(3分类)"
+radlab6c = "受访者6项ADL失能项数"
+sadlab6c = "配偶6项ADL失能项数"
+rshlta = "受访者自评健康"
+sshlta = "配偶自评健康"
+
+
+
+
+
+
+
+
